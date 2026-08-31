@@ -1,13 +1,15 @@
-# Setting this up as yours
+# Running MigrationGuard on your own project
 
 Everything MigrationGuard needs is a throwaway PostgreSQL and a way to call a model.
 There are no accounts to create, no API besides the model, and nothing to deploy.
 
-## 1. Put the repo somewhere and install
+`docs/REPRODUCTION.md` covers reproducing the published benchmark. This covers pointing
+the tool at a real codebase.
+
+## 1. Install
 
 ```bash
-tar xzf migration-guard-final.tar.gz
-cd migration-guard
+git clone https://github.com/saqib7903/migration-guard.git && cd migration-guard
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 pip install -e .                       # gives you the `mg` command
@@ -22,9 +24,7 @@ from a newer interpreter. Paste this as one block:
 brew install python@3.12 postgresql@16
 brew services start postgresql@16
 
-mkdir -p ~/mg
-tar xzf "$(ls -t ~/Downloads/migration-guard-final*.tar.gz | head -1)" -C ~/mg --strip-components=1
-cd ~/mg
+git clone https://github.com/saqib7903/migration-guard.git && cd migration-guard
 
 rm -rf .venv
 /opt/homebrew/bin/python3.12 -m venv .venv
@@ -42,9 +42,8 @@ mg doctor
 
 Three things that will otherwise bite you:
 
-* **Extract to a path with no spaces.** A browser that saves a second copy produces
-  `migration-guard 2`, and an unquoted path breaks `cd` and several make targets. The
-  block above extracts to `~/mg` for that reason.
+* **Clone to a path with no spaces.** An unquoted path with a space in it breaks `cd`
+  and several make targets.
 * **Upgrade pip before `pip install -e .`.** The pip that ships with macOS Python is
   21.2.4, which predates PEP 660 and cannot do an editable install from `pyproject.toml`
   alone. A `setup.py` shim is included so it works anyway, but upgrading is cleaner.
@@ -66,14 +65,14 @@ python -m migration_guard.cli doctor   # no install needed at all
 Every `make` target calls `python -m migration_guard.cli` directly, so the collision never
 affects `make eval-replay`, `make verify-repro`, `make review` or `make ablations`.
 
-## 2. Your `.env`
+## 2. Configuration
 
-Copy `.env.example` to `.env` and edit the four lines that matter. This file is
-git-ignored — keep it that way, and never put a production DSN in it.
+Copy `.env.example` to `.env` and edit the four lines that matter. The file is
+git-ignored; never put a production DSN in it.
 
 ```bash
 # --- model ---------------------------------------------------------------
-# You already have the Claude CLI logged in, so this needs no API key:
+# If the Claude CLI is already logged in, this needs no API key:
 MG_LLM_PROVIDER=claude_cli
 MG_MODEL=claude-sonnet-4-5
 MG_RECORD=1                 # keep this on: it builds the replay cassettes
@@ -97,7 +96,7 @@ Load it in your shell:
 export $(grep -v '^#' .env | xargs)
 ```
 
-## 3. Your database
+## 3. The shadow database
 
 You have three options; pick one.
 
@@ -173,14 +172,14 @@ You don't, from here. `mg approve` records a human decision and hands the file b
 ```bash
 mg approve --case-id 0042_add_currency \
            --sql-file rewrite.sql \
-           --approved-by "Saqib <saqib08011@gmail.com>" \
+           --approved-by "Your Name <you@example.com>" \
            --dsn "$MG_SHADOW_DSN" \
            --summary "rewrite validated in shadow, batched backfill"
 ```
 
 Point it at anything not in `MG_SANDBOX_DSNS` and it refuses. That refusal is the feature.
 
-## 6. Things that will bite you
+## 6. Troubleshooting
 
 | symptom | cause | fix |
 |---|---|---|
