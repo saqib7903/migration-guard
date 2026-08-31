@@ -1,0 +1,10 @@
+{
+  "case_id": "volatile_default",
+  "title": "ADD COLUMN with a volatile DEFAULT",
+  "expected_risks": [
+    "missing_lock_timeout",
+    "table_rewrite"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "A volatile default defeats the PG11 fast path and rewrites the table."
+}

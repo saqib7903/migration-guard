@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_create_table",
+  "title": "CREATE TABLE plus its index",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "A brand new table has no traffic; indexing it blocks nobody."
+}

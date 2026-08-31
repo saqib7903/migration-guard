@@ -1,0 +1,714 @@
+{
+  "generated_at": "20260830-144017",
+  "model": "claude-sonnet-4-5",
+  "provider": "replay",
+  "seed_rows": 20000,
+  "case_count": 29,
+  "unsafe_cases": 21,
+  "safe_cases": 8,
+  "systems": {
+    "advanced": {
+      "summary": {
+        "cases": 29,
+        "risk_recall": 0.0,
+        "risk_precision": 0.0,
+        "risk_f1": 0.0,
+        "decision_accuracy": 0.0,
+        "outage_misses": 0,
+        "false_alarm_risks_on_safe_cases": 0,
+        "ungrounded_findings": 0,
+        "total_findings": 0,
+        "rewrites_offered": 0,
+        "rewrites_validated": 0,
+        "rewrite_validity": 0.0,
+        "llm_calls": 0,
+        "wall_seconds": 0.0,
+        "errors": 29,
+        "system": "advanced",
+        "estimated_cost_usd": 0.0,
+        "run_id": "eval-advanced-20260830-144017-416e5a"
+      },
+      "cases": [
+        {
+          "case_id": "add_column_not_null",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/add_column_not_null",
+          "error": "CassetteMiss: no cassette for 3bdad3e2baaf957d2777891be68cd1f8 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "add_unique_constraint",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/add_unique_constraint",
+          "error": "CassetteMiss: no cassette for c4205c4a7ff92a8d51a9de123c238f11 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "blocking_index",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "blocking_index_build"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/blocking_index",
+          "error": "CassetteMiss: no cassette for 28fbcac09c5826e3d20c58bed7f4ff36 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "concurrently_in_txn",
+          "system": "advanced",
+          "expected_risks": [
+            "non_transactional_in_txn"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "non_transactional_in_txn"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/concurrently_in_txn",
+          "error": "CassetteMiss: no cassette for 0166841b15cfdaed620cd6fc71828b63 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "drop_column",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/drop_column",
+          "error": "CassetteMiss: no cassette for e567b14da6f1c53fed30975014e988b9 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "drop_index_blocking",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/drop_index_blocking",
+          "error": "CassetteMiss: no cassette for 0f31ef0f392e3241e96728327d9d6f46 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "drop_table",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/drop_table",
+          "error": "CassetteMiss: no cassette for 01eefd2ac3f336fece78b874286bd342 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "fails_drop_column_dependent_view",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/fails_drop_column_dependent_view",
+          "error": "CassetteMiss: no cassette for 12483c62c5420ce2a1a054bf099b88c7 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "fails_missing_column",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/fails_missing_column",
+          "error": "CassetteMiss: no cassette for 71cf023c619d77e03fdbe495248223d4 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "fails_typo_syntax",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/fails_typo_syntax",
+          "error": "CassetteMiss: no cassette for b70fa3b99f5d403f7594217038e86a57 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "fails_unique_after_backfill",
+          "system": "advanced",
+          "expected_risks": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/fails_unique_after_backfill",
+          "error": "CassetteMiss: no cassette for 2190e3a52b6efc0c9022922cbb3ba9a7 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "fails_validate_violating_check",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/fails_validate_violating_check",
+          "error": "CassetteMiss: no cassette for 6cc32cf2334675843256940b160507c0 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "lock_timeout_missing_only",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/lock_timeout_missing_only",
+          "error": "CassetteMiss: no cassette for dae9c1a136b30fd77462dd010681624a (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "multi_risk_release",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/multi_risk_release",
+          "error": "CassetteMiss: no cassette for 41b858075660cf56b5c594b5f169bba3 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "rename_column",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/rename_column",
+          "error": "CassetteMiss: no cassette for 8ba42731a304e1bbd89706f841db4bb7 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_add_column_default",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_add_column_default",
+          "error": "CassetteMiss: no cassette for a66e182921261de285a59f2f832d5712 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_add_column_not_null_default",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_add_column_not_null_default",
+          "error": "CassetteMiss: no cassette for 9435056a41fc2268360ecf0dfdcbf707 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_concurrent_index",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_concurrent_index",
+          "error": "CassetteMiss: no cassette for 38cdc8bbc71814287a6018b6f69bf5c8 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_create_table",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_create_table",
+          "error": "CassetteMiss: no cassette for 3f454b65223807b6a80bc26b2e120d1a (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_drop_index_concurrently",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_drop_index_concurrently",
+          "error": "CassetteMiss: no cassette for 910c862f8d940d6af228de4b774ccd8f (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_not_valid_constraint",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_not_valid_constraint",
+          "error": "CassetteMiss: no cassette for 640f0fad7a454e67ef77108042724697 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_set_not_null_after_check",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_set_not_null_after_check",
+          "error": "CassetteMiss: no cassette for 042c68d692944b8fd65dfe8c9cdd2944 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "safe_widen_varchar",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/safe_widen_varchar",
+          "error": "CassetteMiss: no cassette for 2e8bc5385e1a2c044bdcb9456d511a2c (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "set_not_null_scan",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/set_not_null_scan",
+          "error": "CassetteMiss: no cassette for a623466d9d0607d66d3575cbb1e3882e (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "truncate_table",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/truncate_table",
+          "error": "CassetteMiss: no cassette for 2bf358ade11c6101f44cf112af3f1ddc (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "type_change_rewrite",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/type_change_rewrite",
+          "error": "CassetteMiss: no cassette for 6aba1d19735e14b1cdf2f2facf4b366c (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "unbounded_backfill",
+          "system": "advanced",
+          "expected_risks": [
+            "long_running_backfill"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "long_running_backfill"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/unbounded_backfill",
+          "error": "CassetteMiss: no cassette for ddd9c86aed505b267334dd597cb91d60 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "validating_fk",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/validating_fk",
+          "error": "CassetteMiss: no cassette for 1319a40ff03a9da845def5610c85fd66 (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        },
+        {
+          "case_id": "volatile_default",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-144017-416e5a/volatile_default",
+          "error": "CassetteMiss: no cassette for 12014573d058d266d012850f212ad70f (model=claude-sonnet-4-5). Re-record with MG_LLM_PROVIDER=claude_cli, or check that the prompt is unchanged."
+        }
+      ]
+    }
+  }
+}

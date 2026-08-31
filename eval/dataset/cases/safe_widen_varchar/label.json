@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_widen_varchar",
+  "title": "Widening varchar(50) to varchar(200)",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "Binary coercible: PostgreSQL only updates the catalogue, relfilenode is unchanged. Reviewers routinely call this a full rewrite."
+}

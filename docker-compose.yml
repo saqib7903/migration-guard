@@ -1,0 +1,21 @@
+# The shadow database. Disposable by design: MigrationGuard creates a fresh
+# mg_shadow_<random> database per review and drops it in a finally block.
+services:
+  shadow-postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: mg
+      POSTGRES_PASSWORD: mg
+      POSTGRES_DB: postgres
+    command: >
+      postgres -c max_connections=100 -c fsync=off -c full_page_writes=off
+               -c synchronous_commit=off
+    ports:
+      - "5433:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mg"]
+      interval: 2s
+      timeout: 3s
+      retries: 20

@@ -1,0 +1,5 @@
+# Cassettes are recorded model responses, not hand-written source. Collapse them in
+# review UIs so a diff of the benchmark is readable.
+cassettes/*.json linguist-generated=true -diff
+docs/raw-trajectories/*.jsonl linguist-generated=true -diff
+reports/*.json linguist-generated=true

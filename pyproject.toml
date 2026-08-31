@@ -1,0 +1,22 @@
+[project]
+name = "migration-guard"
+version = "1.0.0"
+description = "Agentic pre-deploy safety review for PostgreSQL schema migrations, grounded in a real shadow database."
+requires-python = ">=3.11"
+dependencies = [
+    "psycopg[binary]>=3.1",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+# `mg` is the short name, but it collides with the `mg` micro-Emacs editor, which is
+# present on some BSD and macOS setups. `migration-guard` is always unambiguous.
+mg = "migration_guard.cli:main"
+migration-guard = "migration_guard.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

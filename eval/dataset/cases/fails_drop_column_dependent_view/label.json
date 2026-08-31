@@ -1,0 +1,11 @@
+{
+  "case_id": "fails_drop_column_dependent_view",
+  "title": "DROP COLUMN with a view depending on it",
+  "expected_risks": [
+    "destructive_drop",
+    "migration_will_fail",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "block",
+  "notes": "PostgreSQL refuses because a view depends on the column; CASCADE would silently drop the view instead."
+}

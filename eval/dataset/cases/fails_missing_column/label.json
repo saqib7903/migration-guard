@@ -1,0 +1,9 @@
+{
+  "case_id": "fails_missing_column",
+  "title": "Index on a column that does not exist",
+  "expected_risks": [
+    "migration_will_fail"
+  ],
+  "expected_decision": "block",
+  "notes": "Looks like the safe pattern. orders.shipped_at was never added, so the deploy aborts. Only executing it finds this."
+}

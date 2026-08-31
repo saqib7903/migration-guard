@@ -1,0 +1,10 @@
+{
+  "case_id": "fails_typo_syntax",
+  "title": "Typo that only the server catches",
+  "expected_risks": [
+    "migration_will_fail",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "block",
+  "notes": "`CONSTRAIN` instead of `CONSTRAINT`. The first statement commits, the second aborts: a half-applied migration."
+}

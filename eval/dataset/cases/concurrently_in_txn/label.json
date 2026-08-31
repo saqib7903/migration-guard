@@ -1,0 +1,9 @@
+{
+  "case_id": "concurrently_in_txn",
+  "title": "CREATE INDEX CONCURRENTLY inside a transaction",
+  "expected_risks": [
+    "non_transactional_in_txn"
+  ],
+  "expected_decision": "block",
+  "notes": "PostgreSQL refuses: CONCURRENTLY cannot run inside a transaction block."
+}

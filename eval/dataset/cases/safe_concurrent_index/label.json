@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_concurrent_index",
+  "title": "CREATE INDEX CONCURRENTLY outside a transaction",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "SHARE UPDATE EXCLUSIVE: writes keep working."
+}

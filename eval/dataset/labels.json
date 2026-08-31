@@ -1,0 +1,269 @@
+[
+  {
+    "case_id": "add_column_not_null",
+    "title": "ADD COLUMN NOT NULL with no default",
+    "expected_risks": [
+      "migration_will_fail",
+      "missing_lock_timeout",
+      "not_null_without_default"
+    ],
+    "expected_decision": "block",
+    "notes": "Fails outright on a non-empty table: PostgreSQL raises NotNullViolation."
+  },
+  {
+    "case_id": "set_not_null_scan",
+    "title": "SET NOT NULL on a populated column",
+    "expected_risks": [
+      "missing_lock_timeout",
+      "not_null_without_default"
+    ],
+    "expected_decision": "block",
+    "notes": "Full scan under ACCESS EXCLUSIVE, and it fails while NULLs exist."
+  },
+  {
+    "case_id": "blocking_index",
+    "title": "CREATE INDEX without CONCURRENTLY",
+    "expected_risks": [
+      "blocking_index_build"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "SHARE lock blocks every INSERT/UPDATE/DELETE for the whole build."
+  },
+  {
+    "case_id": "drop_column",
+    "title": "DROP COLUMN still referenced by deployed code",
+    "expected_risks": [
+      "destructive_drop",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "block",
+    "notes": "Irreversible data loss plus instant breakage of running application code."
+  },
+  {
+    "case_id": "type_change_rewrite",
+    "title": "ALTER COLUMN TYPE forcing a rewrite",
+    "expected_risks": [
+      "missing_lock_timeout",
+      "table_rewrite",
+      "unsafe_type_change"
+    ],
+    "expected_decision": "block",
+    "notes": "int -> bigint is not binary coercible: whole-table rewrite under ACCESS EXCLUSIVE."
+  },
+  {
+    "case_id": "validating_fk",
+    "title": "ADD FOREIGN KEY without NOT VALID",
+    "expected_risks": [
+      "missing_lock_timeout",
+      "validating_constraint"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "Scans and locks both tables; the NOT VALID + VALIDATE split avoids it."
+  },
+  {
+    "case_id": "rename_column",
+    "title": "RENAME a column that is in use",
+    "expected_risks": [
+      "missing_lock_timeout",
+      "renaming_in_use"
+    ],
+    "expected_decision": "block",
+    "notes": "No overlap window: every running process breaks the moment it commits."
+  },
+  {
+    "case_id": "unbounded_backfill",
+    "title": "Unbounded UPDATE backfill",
+    "expected_risks": [
+      "long_running_backfill"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "Rewrites every row in one transaction: long locks, WAL spike, bloat."
+  },
+  {
+    "case_id": "concurrently_in_txn",
+    "title": "CREATE INDEX CONCURRENTLY inside a transaction",
+    "expected_risks": [
+      "non_transactional_in_txn"
+    ],
+    "expected_decision": "block",
+    "notes": "PostgreSQL refuses: CONCURRENTLY cannot run inside a transaction block."
+  },
+  {
+    "case_id": "add_unique_constraint",
+    "title": "ADD UNIQUE constraint inline",
+    "expected_risks": [
+      "blocking_index_build",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "Builds the unique index inline under ACCESS EXCLUSIVE."
+  },
+  {
+    "case_id": "volatile_default",
+    "title": "ADD COLUMN with a volatile DEFAULT",
+    "expected_risks": [
+      "missing_lock_timeout",
+      "table_rewrite"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "A volatile default defeats the PG11 fast path and rewrites the table."
+  },
+  {
+    "case_id": "drop_table",
+    "title": "DROP TABLE",
+    "expected_risks": [
+      "destructive_drop",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "block",
+    "notes": "Total data loss; also fails or cascades depending on dependencies."
+  },
+  {
+    "case_id": "truncate_table",
+    "title": "TRUNCATE in a migration",
+    "expected_risks": [
+      "destructive_drop",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "block",
+    "notes": "Deletes every row under ACCESS EXCLUSIVE."
+  },
+  {
+    "case_id": "multi_risk_release",
+    "title": "Realistic release migration with four problems",
+    "expected_risks": [
+      "blocking_index_build",
+      "destructive_drop",
+      "long_running_backfill",
+      "migration_will_fail",
+      "missing_lock_timeout",
+      "not_null_without_default"
+    ],
+    "expected_decision": "block",
+    "notes": "The shape of a real end-of-sprint migration: several risks in one file."
+  },
+  {
+    "case_id": "drop_index_blocking",
+    "title": "DROP INDEX without CONCURRENTLY",
+    "expected_risks": [
+      "blocking_index_build",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "ACCESS EXCLUSIVE on the table for the duration of the drop."
+  },
+  {
+    "case_id": "lock_timeout_missing_only",
+    "title": "Otherwise-fine DDL with no lock_timeout",
+    "expected_risks": [
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "needs_changes",
+    "notes": "PG11+ fast path makes this cheap, but with no lock_timeout it can still queue behind a long query and freeze the table. The interesting failure mode for reviewers is over-reporting a rewrite here."
+  },
+  {
+    "case_id": "safe_add_column_default",
+    "title": "ADD COLUMN with a constant default",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "PG11+ stores the default in the catalogue: no rewrite, no scan."
+  },
+  {
+    "case_id": "safe_concurrent_index",
+    "title": "CREATE INDEX CONCURRENTLY outside a transaction",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "SHARE UPDATE EXCLUSIVE: writes keep working."
+  },
+  {
+    "case_id": "safe_not_valid_constraint",
+    "title": "NOT VALID then VALIDATE",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "The textbook two-step: brief lock, then a non-blocking validation scan."
+  },
+  {
+    "case_id": "safe_create_table",
+    "title": "CREATE TABLE plus its index",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "A brand new table has no traffic; indexing it blocks nobody."
+  },
+  {
+    "case_id": "safe_drop_index_concurrently",
+    "title": "DROP INDEX CONCURRENTLY",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "SHARE UPDATE EXCLUSIVE only."
+  },
+  {
+    "case_id": "fails_missing_column",
+    "title": "Index on a column that does not exist",
+    "expected_risks": [
+      "migration_will_fail"
+    ],
+    "expected_decision": "block",
+    "notes": "Looks like the safe pattern. orders.shipped_at was never added, so the deploy aborts. Only executing it finds this."
+  },
+  {
+    "case_id": "fails_typo_syntax",
+    "title": "Typo that only the server catches",
+    "expected_risks": [
+      "migration_will_fail",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "block",
+    "notes": "`CONSTRAIN` instead of `CONSTRAINT`. The first statement commits, the second aborts: a half-applied migration."
+  },
+  {
+    "case_id": "fails_validate_violating_check",
+    "title": "NOT VALID then VALIDATE on data that violates it",
+    "expected_risks": [
+      "migration_will_fail"
+    ],
+    "expected_decision": "block",
+    "notes": "Textbook-correct shape, wrong predicate. VALIDATE fails on existing rows. A linter sees the safe pattern and approves it."
+  },
+  {
+    "case_id": "fails_unique_after_backfill",
+    "title": "Unique index over values a backfill just duplicated",
+    "expected_risks": [
+      "long_running_backfill",
+      "migration_will_fail"
+    ],
+    "expected_decision": "block",
+    "notes": "Each statement is defensible alone; together the second cannot succeed. Requires reasoning about the data the first statement produced."
+  },
+  {
+    "case_id": "fails_drop_column_dependent_view",
+    "title": "DROP COLUMN with a view depending on it",
+    "expected_risks": [
+      "destructive_drop",
+      "migration_will_fail",
+      "missing_lock_timeout"
+    ],
+    "expected_decision": "block",
+    "notes": "PostgreSQL refuses because a view depends on the column; CASCADE would silently drop the view instead."
+  },
+  {
+    "case_id": "safe_widen_varchar",
+    "title": "Widening varchar(50) to varchar(200)",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "Binary coercible: PostgreSQL only updates the catalogue, relfilenode is unchanged. Reviewers routinely call this a full rewrite."
+  },
+  {
+    "case_id": "safe_set_not_null_after_check",
+    "title": "SET NOT NULL with a validated CHECK already in place",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "PG12+ uses the validated CHECK to skip the full scan. The rule-based linter cannot see that and reports a scan that will not happen."
+  },
+  {
+    "case_id": "safe_add_column_not_null_default",
+    "title": "ADD COLUMN NOT NULL *with* a constant default",
+    "expected_risks": [],
+    "expected_decision": "safe",
+    "notes": "The PG11 fast path: no rewrite, no scan. Frequently confused with the genuinely broken no-default version."
+  }
+]

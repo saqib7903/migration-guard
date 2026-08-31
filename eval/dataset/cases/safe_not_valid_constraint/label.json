@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_not_valid_constraint",
+  "title": "NOT VALID then VALIDATE",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "The textbook two-step: brief lock, then a non-blocking validation scan."
+}

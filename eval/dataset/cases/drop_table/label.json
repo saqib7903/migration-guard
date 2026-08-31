@@ -1,0 +1,10 @@
+{
+  "case_id": "drop_table",
+  "title": "DROP TABLE",
+  "expected_risks": [
+    "destructive_drop",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "block",
+  "notes": "Total data loss; also fails or cascades depending on dependencies."
+}

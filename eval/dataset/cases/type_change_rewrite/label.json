@@ -1,0 +1,11 @@
+{
+  "case_id": "type_change_rewrite",
+  "title": "ALTER COLUMN TYPE forcing a rewrite",
+  "expected_risks": [
+    "missing_lock_timeout",
+    "table_rewrite",
+    "unsafe_type_change"
+  ],
+  "expected_decision": "block",
+  "notes": "int -> bigint is not binary coercible: whole-table rewrite under ACCESS EXCLUSIVE."
+}

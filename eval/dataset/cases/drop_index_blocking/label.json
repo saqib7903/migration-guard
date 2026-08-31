@@ -1,0 +1,10 @@
+{
+  "case_id": "drop_index_blocking",
+  "title": "DROP INDEX without CONCURRENTLY",
+  "expected_risks": [
+    "blocking_index_build",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "ACCESS EXCLUSIVE on the table for the duration of the drop."
+}

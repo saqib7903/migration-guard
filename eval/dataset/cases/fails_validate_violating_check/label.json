@@ -1,0 +1,9 @@
+{
+  "case_id": "fails_validate_violating_check",
+  "title": "NOT VALID then VALIDATE on data that violates it",
+  "expected_risks": [
+    "migration_will_fail"
+  ],
+  "expected_decision": "block",
+  "notes": "Textbook-correct shape, wrong predicate. VALIDATE fails on existing rows. A linter sees the safe pattern and approves it."
+}

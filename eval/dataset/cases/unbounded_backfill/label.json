@@ -1,0 +1,9 @@
+{
+  "case_id": "unbounded_backfill",
+  "title": "Unbounded UPDATE backfill",
+  "expected_risks": [
+    "long_running_backfill"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "Rewrites every row in one transaction: long locks, WAL spike, bloat."
+}

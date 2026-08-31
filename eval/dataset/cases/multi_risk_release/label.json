@@ -1,0 +1,14 @@
+{
+  "case_id": "multi_risk_release",
+  "title": "Realistic release migration with four problems",
+  "expected_risks": [
+    "blocking_index_build",
+    "destructive_drop",
+    "long_running_backfill",
+    "migration_will_fail",
+    "missing_lock_timeout",
+    "not_null_without_default"
+  ],
+  "expected_decision": "block",
+  "notes": "The shape of a real end-of-sprint migration: several risks in one file."
+}

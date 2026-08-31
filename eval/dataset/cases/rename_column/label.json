@@ -1,0 +1,10 @@
+{
+  "case_id": "rename_column",
+  "title": "RENAME a column that is in use",
+  "expected_risks": [
+    "missing_lock_timeout",
+    "renaming_in_use"
+  ],
+  "expected_decision": "block",
+  "notes": "No overlap window: every running process breaks the moment it commits."
+}

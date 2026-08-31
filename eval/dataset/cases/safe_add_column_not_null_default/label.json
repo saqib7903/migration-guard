@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_add_column_not_null_default",
+  "title": "ADD COLUMN NOT NULL *with* a constant default",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "The PG11 fast path: no rewrite, no scan. Frequently confused with the genuinely broken no-default version."
+}

@@ -1,0 +1,10 @@
+{
+  "case_id": "set_not_null_scan",
+  "title": "SET NOT NULL on a populated column",
+  "expected_risks": [
+    "missing_lock_timeout",
+    "not_null_without_default"
+  ],
+  "expected_decision": "block",
+  "notes": "Full scan under ACCESS EXCLUSIVE, and it fails while NULLs exist."
+}

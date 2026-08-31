@@ -1,0 +1,10 @@
+{
+  "case_id": "truncate_table",
+  "title": "TRUNCATE in a migration",
+  "expected_risks": [
+    "destructive_drop",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "block",
+  "notes": "Deletes every row under ACCESS EXCLUSIVE."
+}

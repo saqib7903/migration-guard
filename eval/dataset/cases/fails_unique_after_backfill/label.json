@@ -1,0 +1,10 @@
+{
+  "case_id": "fails_unique_after_backfill",
+  "title": "Unique index over values a backfill just duplicated",
+  "expected_risks": [
+    "long_running_backfill",
+    "migration_will_fail"
+  ],
+  "expected_decision": "block",
+  "notes": "Each statement is defensible alone; together the second cannot succeed. Requires reasoning about the data the first statement produced."
+}

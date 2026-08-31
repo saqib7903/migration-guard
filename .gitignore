@@ -1,0 +1,17 @@
+# secrets and local config — never commit
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# generated at runtime. Every review writes a trajectory here, so the directory grows
+# without bound; representative trajectories are committed under docs/ instead.
+runs/
+
+# local ablation output
+reports/ablation-*/comparison.md
+docs/trajectory_index.json

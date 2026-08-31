@@ -1,0 +1,11 @@
+{
+  "case_id": "add_column_not_null",
+  "title": "ADD COLUMN NOT NULL with no default",
+  "expected_risks": [
+    "migration_will_fail",
+    "missing_lock_timeout",
+    "not_null_without_default"
+  ],
+  "expected_decision": "block",
+  "notes": "Fails outright on a non-empty table: PostgreSQL raises NotNullViolation."
+}

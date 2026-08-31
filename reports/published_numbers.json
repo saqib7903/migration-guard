@@ -1,0 +1,29 @@
+{
+  "rules_only": {
+    "risk_recall": 0.837,
+    "risk_precision": 0.973,
+    "decision_accuracy": 0.724,
+    "outage_misses": 2,
+    "false_alarm_risks_on_safe_cases": 1,
+    "ungrounded_findings": 0,
+    "rewrites_validated": 0
+  },
+  "baseline": {
+    "risk_recall": 0.814,
+    "risk_precision": 0.778,
+    "decision_accuracy": 0.69,
+    "outage_misses": 0,
+    "false_alarm_risks_on_safe_cases": 4,
+    "ungrounded_findings": 48,
+    "rewrites_validated": 0
+  },
+  "advanced": {
+    "risk_recall": 0.884,
+    "risk_precision": 0.927,
+    "decision_accuracy": 0.931,
+    "outage_misses": 0,
+    "false_alarm_risks_on_safe_cases": 0,
+    "ungrounded_findings": 0,
+    "rewrites_validated": 21
+  }
+}

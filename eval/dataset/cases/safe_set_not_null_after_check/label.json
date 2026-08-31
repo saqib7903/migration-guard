@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_set_not_null_after_check",
+  "title": "SET NOT NULL with a validated CHECK already in place",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "PG12+ uses the validated CHECK to skip the full scan. The rule-based linter cannot see that and reports a scan that will not happen."
+}

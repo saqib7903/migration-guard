@@ -1,0 +1,10 @@
+{
+  "case_id": "validating_fk",
+  "title": "ADD FOREIGN KEY without NOT VALID",
+  "expected_risks": [
+    "missing_lock_timeout",
+    "validating_constraint"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "Scans and locks both tables; the NOT VALID + VALIDATE split avoids it."
+}

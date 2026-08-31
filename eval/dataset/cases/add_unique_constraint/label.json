@@ -1,0 +1,10 @@
+{
+  "case_id": "add_unique_constraint",
+  "title": "ADD UNIQUE constraint inline",
+  "expected_risks": [
+    "blocking_index_build",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "Builds the unique index inline under ACCESS EXCLUSIVE."
+}

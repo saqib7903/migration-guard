@@ -1,0 +1,37 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      shadow-postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: mg
+          POSTGRES_PASSWORD: mg
+          POSTGRES_DB: postgres
+        ports: ["5433:5432"]
+        options: >-
+          --health-cmd "pg_isready -U mg" --health-interval 2s
+          --health-timeout 3s --health-retries 20
+    env:
+      PYTHONPATH: src
+      MG_LLM_PROVIDER: replay          # no API key needed, and no model call is made
+      MG_SHADOW_DSN: postgresql://mg:mg@127.0.0.1:5433/postgres
+      MG_SANDBOX_DSNS: postgresql://mg:mg@127.0.0.1:5433/postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt pytest
+      - name: unit tests
+        run: python -m pytest tests -q
+      - name: dataset is in sync with its generator
+        run: |
+          python scripts/make_dataset.py
+          git diff --exit-code eval/dataset
+      - name: reproduce the published benchmark from cassettes
+        run: python -m migration_guard.cli eval --systems rules_only,baseline,advanced
+      - name: published numbers still match
+        run: python scripts/check_reproduction.py

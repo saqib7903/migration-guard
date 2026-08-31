@@ -1,0 +1,10 @@
+{
+  "case_id": "drop_column",
+  "title": "DROP COLUMN still referenced by deployed code",
+  "expected_risks": [
+    "destructive_drop",
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "block",
+  "notes": "Irreversible data loss plus instant breakage of running application code."
+}

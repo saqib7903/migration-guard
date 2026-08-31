@@ -1,0 +1,2389 @@
+{
+  "generated_at": "20260830-123221",
+  "model": "claude-sonnet-4-5",
+  "provider": "claude_cli",
+  "seed_rows": 20000,
+  "case_count": 29,
+  "unsafe_cases": 21,
+  "safe_cases": 8,
+  "systems": {
+    "rules_only": {
+      "summary": {
+        "cases": 29,
+        "risk_recall": 0.878,
+        "risk_precision": 0.973,
+        "risk_f1": 0.923,
+        "decision_accuracy": 0.724,
+        "outage_misses": 2,
+        "false_alarm_risks_on_safe_cases": 1,
+        "ungrounded_findings": 0,
+        "total_findings": 38,
+        "rewrites_offered": 0,
+        "rewrites_validated": 0,
+        "rewrite_validity": 0.0,
+        "llm_calls": 0,
+        "wall_seconds": 0.1,
+        "errors": 0,
+        "system": "rules_only",
+        "estimated_cost_usd": 0.0,
+        "run_id": "eval-rules_only-20260830-123221-3e540d"
+      },
+      "cases": [
+        {
+          "case_id": "add_column_not_null",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.011,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/add_column_not_null",
+          "error": ""
+        },
+        {
+          "case_id": "add_unique_constraint",
+          "system": "rules_only",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.009,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/add_unique_constraint",
+          "error": ""
+        },
+        {
+          "case_id": "blocking_index",
+          "system": "rules_only",
+          "expected_risks": [
+            "blocking_index_build"
+          ],
+          "predicted_risks": [
+            "blocking_index_build"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "blocking_index_build"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.001,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/blocking_index",
+          "error": ""
+        },
+        {
+          "case_id": "concurrently_in_txn",
+          "system": "rules_only",
+          "expected_risks": [
+            "non_transactional_in_txn"
+          ],
+          "predicted_risks": [
+            "non_transactional_in_txn"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "non_transactional_in_txn"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.004,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/concurrently_in_txn",
+          "error": ""
+        },
+        {
+          "case_id": "drop_column",
+          "system": "rules_only",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.006,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/drop_column",
+          "error": ""
+        },
+        {
+          "case_id": "drop_index_blocking",
+          "system": "rules_only",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.002,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/drop_index_blocking",
+          "error": ""
+        },
+        {
+          "case_id": "drop_table",
+          "system": "rules_only",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.002,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/drop_table",
+          "error": ""
+        },
+        {
+          "case_id": "fails_drop_column_dependent_view",
+          "system": "rules_only",
+          "expected_risks": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.004,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/fails_drop_column_dependent_view",
+          "error": ""
+        },
+        {
+          "case_id": "fails_missing_column",
+          "system": "rules_only",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.005,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/fails_missing_column",
+          "error": ""
+        },
+        {
+          "case_id": "fails_typo_syntax",
+          "system": "rules_only",
+          "expected_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.007,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/fails_typo_syntax",
+          "error": ""
+        },
+        {
+          "case_id": "fails_unique_after_backfill",
+          "system": "rules_only",
+          "expected_risks": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "long_running_backfill"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "long_running_backfill"
+          ],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.005,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/fails_unique_after_backfill",
+          "error": ""
+        },
+        {
+          "case_id": "fails_validate_violating_check",
+          "system": "rules_only",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "migration_will_fail"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.006,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/fails_validate_violating_check",
+          "error": ""
+        },
+        {
+          "case_id": "lock_timeout_missing_only",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.004,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/lock_timeout_missing_only",
+          "error": ""
+        },
+        {
+          "case_id": "multi_risk_release",
+          "system": "rules_only",
+          "expected_risks": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 5,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.005,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/multi_risk_release",
+          "error": ""
+        },
+        {
+          "case_id": "rename_column",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.006,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/rename_column",
+          "error": ""
+        },
+        {
+          "case_id": "safe_add_column_default",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.008,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_add_column_default",
+          "error": ""
+        },
+        {
+          "case_id": "safe_add_column_not_null_default",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.004,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_add_column_not_null_default",
+          "error": ""
+        },
+        {
+          "case_id": "safe_concurrent_index",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.005,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_concurrent_index",
+          "error": ""
+        },
+        {
+          "case_id": "safe_create_table",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.002,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_create_table",
+          "error": ""
+        },
+        {
+          "case_id": "safe_drop_index_concurrently",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.007,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_drop_index_concurrently",
+          "error": ""
+        },
+        {
+          "case_id": "safe_not_valid_constraint",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.004,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_not_valid_constraint",
+          "error": ""
+        },
+        {
+          "case_id": "safe_set_not_null_after_check",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [
+            "not_null_without_default"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "needs_changes",
+          "true_positives": [],
+          "false_positives": [
+            "not_null_without_default"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.003,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_set_not_null_after_check",
+          "error": ""
+        },
+        {
+          "case_id": "safe_widen_varchar",
+          "system": "rules_only",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.007,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/safe_widen_varchar",
+          "error": ""
+        },
+        {
+          "case_id": "set_not_null_scan",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.005,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/set_not_null_scan",
+          "error": ""
+        },
+        {
+          "case_id": "truncate_table",
+          "system": "rules_only",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.003,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/truncate_table",
+          "error": ""
+        },
+        {
+          "case_id": "type_change_rewrite",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.003,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/type_change_rewrite",
+          "error": ""
+        },
+        {
+          "case_id": "unbounded_backfill",
+          "system": "rules_only",
+          "expected_risks": [
+            "long_running_backfill"
+          ],
+          "predicted_risks": [
+            "long_running_backfill"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "long_running_backfill"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.005,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/unbounded_backfill",
+          "error": ""
+        },
+        {
+          "case_id": "validating_fk",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.002,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/validating_fk",
+          "error": ""
+        },
+        {
+          "case_id": "volatile_default",
+          "system": "rules_only",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.001,
+          "run_id": "eval-rules_only-20260830-123221-3e540d/volatile_default",
+          "error": ""
+        }
+      ]
+    },
+    "baseline": {
+      "summary": {
+        "cases": 29,
+        "risk_recall": 0.878,
+        "risk_precision": 0.529,
+        "risk_f1": 0.661,
+        "decision_accuracy": 0.724,
+        "outage_misses": 0,
+        "false_alarm_risks_on_safe_cases": 8,
+        "ungrounded_findings": 71,
+        "total_findings": 71,
+        "rewrites_offered": 0,
+        "rewrites_validated": 0,
+        "rewrite_validity": 0.0,
+        "llm_calls": 29,
+        "wall_seconds": 1353.9,
+        "errors": 0,
+        "system": "baseline",
+        "estimated_cost_usd": 1.6231,
+        "run_id": "eval-baseline-20260830-123221-251a2c"
+      },
+      "cases": [
+        {
+          "case_id": "add_column_not_null",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "false_positives": [
+            "access_exclusive_lock",
+            "migration_will_fail"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 4,
+          "total_findings": 4,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 43.88,
+          "run_id": "eval-baseline-20260830-123221-251a2c/add_column_not_null",
+          "error": ""
+        },
+        {
+          "case_id": "add_unique_constraint",
+          "system": "baseline",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock",
+            "migration_will_fail",
+            "validating_constraint"
+          ],
+          "false_negatives": [
+            "blocking_index_build"
+          ],
+          "ungrounded_findings": 4,
+          "total_findings": 4,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 40.63,
+          "run_id": "eval-baseline-20260830-123221-251a2c/add_unique_constraint",
+          "error": ""
+        },
+        {
+          "case_id": "blocking_index",
+          "system": "baseline",
+          "expected_risks": [
+            "blocking_index_build"
+          ],
+          "predicted_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "blocking_index_build"
+          ],
+          "false_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 2,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 52.13,
+          "run_id": "eval-baseline-20260830-123221-251a2c/blocking_index",
+          "error": ""
+        },
+        {
+          "case_id": "concurrently_in_txn",
+          "system": "baseline",
+          "expected_risks": [
+            "non_transactional_in_txn"
+          ],
+          "predicted_risks": [
+            "non_transactional_in_txn"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "non_transactional_in_txn"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 46.23,
+          "run_id": "eval-baseline-20260830-123221-251a2c/concurrently_in_txn",
+          "error": ""
+        },
+        {
+          "case_id": "drop_column",
+          "system": "baseline",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 39.28,
+          "run_id": "eval-baseline-20260830-123221-251a2c/drop_column",
+          "error": ""
+        },
+        {
+          "case_id": "drop_index_blocking",
+          "system": "baseline",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [
+            "blocking_index_build"
+          ],
+          "ungrounded_findings": 2,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 23.74,
+          "run_id": "eval-baseline-20260830-123221-251a2c/drop_index_blocking",
+          "error": ""
+        },
+        {
+          "case_id": "drop_table",
+          "system": "baseline",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 38.74,
+          "run_id": "eval-baseline-20260830-123221-251a2c/drop_table",
+          "error": ""
+        },
+        {
+          "case_id": "fails_drop_column_dependent_view",
+          "system": "baseline",
+          "expected_risks": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 4,
+          "total_findings": 4,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 32.75,
+          "run_id": "eval-baseline-20260830-123221-251a2c/fails_drop_column_dependent_view",
+          "error": ""
+        },
+        {
+          "case_id": "fails_missing_column",
+          "system": "baseline",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "migration_will_fail"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "migration_will_fail"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 21.52,
+          "run_id": "eval-baseline-20260830-123221-251a2c/fails_missing_column",
+          "error": ""
+        },
+        {
+          "case_id": "fails_typo_syntax",
+          "system": "baseline",
+          "expected_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "validating_constraint"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 26.74,
+          "run_id": "eval-baseline-20260830-123221-251a2c/fails_typo_syntax",
+          "error": ""
+        },
+        {
+          "case_id": "fails_unique_after_backfill",
+          "system": "baseline",
+          "expected_risks": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "long_running_backfill",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "non_transactional_in_txn"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "false_positives": [
+            "missing_lock_timeout",
+            "non_transactional_in_txn"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 4,
+          "total_findings": 4,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 41.91,
+          "run_id": "eval-baseline-20260830-123221-251a2c/fails_unique_after_backfill",
+          "error": ""
+        },
+        {
+          "case_id": "fails_validate_violating_check",
+          "system": "baseline",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "migration_will_fail"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "migration_will_fail"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 53.14,
+          "run_id": "eval-baseline-20260830-123221-251a2c/fails_validate_violating_check",
+          "error": ""
+        },
+        {
+          "case_id": "lock_timeout_missing_only",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 69.33,
+          "run_id": "eval-baseline-20260830-123221-251a2c/lock_timeout_missing_only",
+          "error": ""
+        },
+        {
+          "case_id": "multi_risk_release",
+          "system": "baseline",
+          "expected_risks": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill"
+          ],
+          "false_positives": [
+            "access_exclusive_lock",
+            "migration_will_fail"
+          ],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "ungrounded_findings": 5,
+          "total_findings": 5,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 47.21,
+          "run_id": "eval-baseline-20260830-123221-251a2c/multi_risk_release",
+          "error": ""
+        },
+        {
+          "case_id": "rename_column",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 40.04,
+          "run_id": "eval-baseline-20260830-123221-251a2c/rename_column",
+          "error": ""
+        },
+        {
+          "case_id": "safe_add_column_default",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 42.8,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_add_column_default",
+          "error": ""
+        },
+        {
+          "case_id": "safe_add_column_not_null_default",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 43.55,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_add_column_not_null_default",
+          "error": ""
+        },
+        {
+          "case_id": "safe_concurrent_index",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "non_transactional_in_txn"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "needs_changes",
+          "true_positives": [],
+          "false_positives": [
+            "missing_lock_timeout",
+            "non_transactional_in_txn"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 2,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 50.63,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_concurrent_index",
+          "error": ""
+        },
+        {
+          "case_id": "safe_create_table",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "needs_changes",
+          "true_positives": [],
+          "false_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 74.79,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_create_table",
+          "error": ""
+        },
+        {
+          "case_id": "safe_drop_index_concurrently",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [
+            "missing_lock_timeout",
+            "non_transactional_in_txn"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "needs_changes",
+          "true_positives": [],
+          "false_positives": [
+            "missing_lock_timeout",
+            "non_transactional_in_txn"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 2,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 63.71,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_drop_index_concurrently",
+          "error": ""
+        },
+        {
+          "case_id": "safe_not_valid_constraint",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [
+            "migration_will_fail"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [
+            "migration_will_fail"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 2,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 85.01,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_not_valid_constraint",
+          "error": ""
+        },
+        {
+          "case_id": "safe_set_not_null_after_check",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [
+            "access_exclusive_lock"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "needs_changes",
+          "true_positives": [],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 69.32,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_set_not_null_after_check",
+          "error": ""
+        },
+        {
+          "case_id": "safe_widen_varchar",
+          "system": "baseline",
+          "expected_risks": [],
+          "predicted_risks": [
+            "access_exclusive_lock"
+          ],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 1,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 85.79,
+          "run_id": "eval-baseline-20260830-123221-251a2c/safe_widen_varchar",
+          "error": ""
+        },
+        {
+          "case_id": "set_not_null_scan",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "false_positives": [
+            "access_exclusive_lock",
+            "migration_will_fail"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 4,
+          "total_findings": 4,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 28.67,
+          "run_id": "eval-baseline-20260830-123221-251a2c/set_not_null_scan",
+          "error": ""
+        },
+        {
+          "case_id": "truncate_table",
+          "system": "baseline",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 22.14,
+          "run_id": "eval-baseline-20260830-123221-251a2c/truncate_table",
+          "error": ""
+        },
+        {
+          "case_id": "type_change_rewrite",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [
+            "unsafe_type_change"
+          ],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 30.35,
+          "run_id": "eval-baseline-20260830-123221-251a2c/type_change_rewrite",
+          "error": ""
+        },
+        {
+          "case_id": "unbounded_backfill",
+          "system": "baseline",
+          "expected_risks": [
+            "long_running_backfill"
+          ],
+          "predicted_risks": [
+            "long_running_backfill",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "block",
+          "true_positives": [
+            "long_running_backfill"
+          ],
+          "false_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 2,
+          "total_findings": 2,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 68.41,
+          "run_id": "eval-baseline-20260830-123221-251a2c/unbounded_backfill",
+          "error": ""
+        },
+        {
+          "case_id": "validating_fk",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "false_positives": [
+            "access_exclusive_lock",
+            "migration_will_fail"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 4,
+          "total_findings": 4,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 40.31,
+          "run_id": "eval-baseline-20260830-123221-251a2c/validating_fk",
+          "error": ""
+        },
+        {
+          "case_id": "volatile_default",
+          "system": "baseline",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 3,
+          "total_findings": 3,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 1,
+          "wall_seconds": 31.16,
+          "run_id": "eval-baseline-20260830-123221-251a2c/volatile_default",
+          "error": ""
+        }
+      ]
+    },
+    "advanced": {
+      "summary": {
+        "cases": 29,
+        "risk_recall": 0.61,
+        "risk_precision": 0.758,
+        "risk_f1": 0.676,
+        "decision_accuracy": 0.621,
+        "outage_misses": 0,
+        "false_alarm_risks_on_safe_cases": 0,
+        "ungrounded_findings": 0,
+        "total_findings": 35,
+        "rewrites_offered": 14,
+        "rewrites_validated": 14,
+        "rewrite_validity": 1.0,
+        "llm_calls": 106,
+        "wall_seconds": 2428.9,
+        "errors": 10,
+        "system": "advanced",
+        "estimated_cost_usd": 4.4518,
+        "run_id": "eval-advanced-20260830-123721-d29248"
+      },
+      "cases": [
+        {
+          "case_id": "add_column_not_null",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "migration_will_fail"
+          ],
+          "false_negatives": [
+            "not_null_without_default"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 161.46,
+          "run_id": "eval-advanced-20260830-123721-d29248/add_column_not_null",
+          "error": ""
+        },
+        {
+          "case_id": "add_unique_constraint",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 3,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 143.87,
+          "run_id": "eval-advanced-20260830-123721-d29248/add_unique_constraint",
+          "error": ""
+        },
+        {
+          "case_id": "blocking_index",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build"
+          ],
+          "predicted_risks": [
+            "blocking_index_build"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "blocking_index_build"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 120.78,
+          "run_id": "eval-advanced-20260830-123721-d29248/blocking_index",
+          "error": ""
+        },
+        {
+          "case_id": "concurrently_in_txn",
+          "system": "advanced",
+          "expected_risks": [
+            "non_transactional_in_txn"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "non_transactional_in_txn"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/concurrently_in_txn",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "drop_column",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 185.72,
+          "run_id": "eval-advanced-20260830-123721-d29248/drop_column",
+          "error": ""
+        },
+        {
+          "case_id": "drop_index_blocking",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [
+            "blocking_index_build"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 97.02,
+          "run_id": "eval-advanced-20260830-123721-d29248/drop_index_blocking",
+          "error": ""
+        },
+        {
+          "case_id": "drop_table",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 3,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 129.76,
+          "run_id": "eval-advanced-20260830-123721-d29248/drop_table",
+          "error": ""
+        },
+        {
+          "case_id": "fails_drop_column_dependent_view",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 3,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 7,
+          "wall_seconds": 152.66,
+          "run_id": "eval-advanced-20260830-123721-d29248/fails_drop_column_dependent_view",
+          "error": ""
+        },
+        {
+          "case_id": "fails_missing_column",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "migration_will_fail"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "migration_will_fail"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 90.14,
+          "run_id": "eval-advanced-20260830-123721-d29248/fails_missing_column",
+          "error": ""
+        },
+        {
+          "case_id": "fails_typo_syntax",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 97.61,
+          "run_id": "eval-advanced-20260830-123721-d29248/fails_typo_syntax",
+          "error": ""
+        },
+        {
+          "case_id": "fails_unique_after_backfill",
+          "system": "advanced",
+          "expected_risks": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "long_running_backfill",
+            "migration_will_fail",
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "long_running_backfill",
+            "migration_will_fail"
+          ],
+          "false_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 3,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 170.47,
+          "run_id": "eval-advanced-20260830-123721-d29248/fails_unique_after_backfill",
+          "error": ""
+        },
+        {
+          "case_id": "fails_validate_violating_check",
+          "system": "advanced",
+          "expected_risks": [
+            "migration_will_fail"
+          ],
+          "predicted_risks": [
+            "migration_will_fail"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "migration_will_fail"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 2,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 128.68,
+          "run_id": "eval-advanced-20260830-123721-d29248/fails_validate_violating_check",
+          "error": ""
+        },
+        {
+          "case_id": "lock_timeout_missing_only",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [
+            "missing_lock_timeout"
+          ],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout"
+          ],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 109.78,
+          "run_id": "eval-advanced-20260830-123721-d29248/lock_timeout_missing_only",
+          "error": ""
+        },
+        {
+          "case_id": "multi_risk_release",
+          "system": "advanced",
+          "expected_risks": [
+            "blocking_index_build",
+            "destructive_drop",
+            "long_running_backfill",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "destructive_drop",
+            "long_running_backfill",
+            "migration_will_fail",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "block",
+          "true_positives": [
+            "destructive_drop",
+            "long_running_backfill",
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "false_positives": [
+            "access_exclusive_lock",
+            "migration_will_fail"
+          ],
+          "false_negatives": [
+            "blocking_index_build"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 6,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 313.82,
+          "run_id": "eval-advanced-20260830-123721-d29248/multi_risk_release",
+          "error": ""
+        },
+        {
+          "case_id": "rename_column",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "predicted_risks": [
+            "access_exclusive_lock",
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "expected_decision": "block",
+          "predicted_decision": "needs_changes",
+          "true_positives": [
+            "missing_lock_timeout",
+            "renaming_in_use"
+          ],
+          "false_positives": [
+            "access_exclusive_lock"
+          ],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 3,
+          "rewrite_offered": true,
+          "rewrite_validated": true,
+          "llm_calls": 6,
+          "wall_seconds": 178.5,
+          "run_id": "eval-advanced-20260830-123721-d29248/rename_column",
+          "error": ""
+        },
+        {
+          "case_id": "safe_add_column_default",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 4,
+          "wall_seconds": 61.89,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_add_column_default",
+          "error": ""
+        },
+        {
+          "case_id": "safe_add_column_not_null_default",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 1,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 5,
+          "wall_seconds": 117.26,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_add_column_not_null_default",
+          "error": ""
+        },
+        {
+          "case_id": "safe_concurrent_index",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 4,
+          "wall_seconds": 57.99,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_concurrent_index",
+          "error": ""
+        },
+        {
+          "case_id": "safe_create_table",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 4,
+          "wall_seconds": 57.79,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_create_table",
+          "error": ""
+        },
+        {
+          "case_id": "safe_drop_index_concurrently",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "safe",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 4,
+          "wall_seconds": 53.7,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_drop_index_concurrently",
+          "error": ""
+        },
+        {
+          "case_id": "safe_not_valid_constraint",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_not_valid_constraint",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "safe_set_not_null_after_check",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_set_not_null_after_check",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "safe_widen_varchar",
+          "system": "advanced",
+          "expected_risks": [],
+          "predicted_risks": [],
+          "expected_decision": "safe",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/safe_widen_varchar",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "set_not_null_scan",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "not_null_without_default"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/set_not_null_scan",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "truncate_table",
+          "system": "advanced",
+          "expected_risks": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "destructive_drop",
+            "missing_lock_timeout"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/truncate_table",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "type_change_rewrite",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "block",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "table_rewrite",
+            "unsafe_type_change"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/type_change_rewrite",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "unbounded_backfill",
+          "system": "advanced",
+          "expected_risks": [
+            "long_running_backfill"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "long_running_backfill"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/unbounded_backfill",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "validating_fk",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "validating_constraint"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/validating_fk",
+          "error": "LLMError: claude cli failed rc=1: "
+        },
+        {
+          "case_id": "volatile_default",
+          "system": "advanced",
+          "expected_risks": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "predicted_risks": [],
+          "expected_decision": "needs_changes",
+          "predicted_decision": "ERROR",
+          "true_positives": [],
+          "false_positives": [],
+          "false_negatives": [
+            "missing_lock_timeout",
+            "table_rewrite"
+          ],
+          "ungrounded_findings": 0,
+          "total_findings": 0,
+          "rewrite_offered": false,
+          "rewrite_validated": false,
+          "llm_calls": 0,
+          "wall_seconds": 0.0,
+          "run_id": "eval-advanced-20260830-123721-d29248/volatile_default",
+          "error": "LLMError: claude cli failed rc=1: "
+        }
+      ]
+    }
+  }
+}

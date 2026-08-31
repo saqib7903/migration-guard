@@ -1,0 +1,7 @@
+{
+  "case_id": "safe_add_column_default",
+  "title": "ADD COLUMN with a constant default",
+  "expected_risks": [],
+  "expected_decision": "safe",
+  "notes": "PG11+ stores the default in the catalogue: no rewrite, no scan."
+}

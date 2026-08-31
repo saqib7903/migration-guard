@@ -1,0 +1,9 @@
+{
+  "case_id": "lock_timeout_missing_only",
+  "title": "Otherwise-fine DDL with no lock_timeout",
+  "expected_risks": [
+    "missing_lock_timeout"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "PG11+ fast path makes this cheap, but with no lock_timeout it can still queue behind a long query and freeze the table. The interesting failure mode for reviewers is over-reporting a rewrite here."
+}

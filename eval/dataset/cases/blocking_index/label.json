@@ -1,0 +1,9 @@
+{
+  "case_id": "blocking_index",
+  "title": "CREATE INDEX without CONCURRENTLY",
+  "expected_risks": [
+    "blocking_index_build"
+  ],
+  "expected_decision": "needs_changes",
+  "notes": "SHARE lock blocks every INSERT/UPDATE/DELETE for the whole build."
+}
