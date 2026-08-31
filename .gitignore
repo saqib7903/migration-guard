@@ -15,3 +15,4 @@ runs/
 # local ablation output
 reports/ablation-*/comparison.md
 docs/trajectory_index.json
+docs/VIDEO_SCRIPT.md
